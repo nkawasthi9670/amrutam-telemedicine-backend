@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Amrutam Telemedicine Backend
 
 Production-grade backend system for Amrutam’s telemedicine platform designed with a focus on scalability, reliability, security, and observability.
@@ -85,6 +85,6 @@ Detailed architecture and system design:
 
 ```bash
 docker compose up --build
-=======
+
 # amrutam-telemedicine-backend
->>>>>>> 5f29543ee35e3af579244cbcd1c3800d24f0645f
+
