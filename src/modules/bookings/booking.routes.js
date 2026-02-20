@@ -34,7 +34,7 @@ const roleMiddleware = require("../../middleware/roleMiddleware");
  *       403:
  *         description: Forbidden
  */
-// Create booking → PATIENT ONLY
+
 router.post(
   "/",
   authMiddleware,

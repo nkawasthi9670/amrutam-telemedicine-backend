@@ -5,7 +5,7 @@ exports.createSlot = async (req, res) => {
   try {
     const { date,start_time, end_time } = req.body;
 
-    // find doctor id using logged-in user
+    
     const doctorResult = await pool.query(
       "SELECT id FROM doctors WHERE user_id=$1",
       [req.user.id]

@@ -33,10 +33,6 @@ app.use("/api-docs",
   swaggerUi.setup(swaggerSpec)
 );
 
-
-
-
-
 app.get("/", (req, res) => {
   res.send("Amrutam Backend Running");
 });

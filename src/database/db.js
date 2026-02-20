@@ -11,7 +11,7 @@ const connectWithRetry = async (retries = 10) => {
       console.log("✅ DB Connected");
       break;
     } catch (err) {
-      console.log("⏳ Waiting for DB... retrying in 3s");
+      
       retries--;
       await new Promise(res => setTimeout(res, 3000));
     }

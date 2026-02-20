@@ -1,7 +1,7 @@
 module.exports = function allowRoles(...allowedRoles) {
   return (req, res, next) => {
     try {
-      const user = req.user; // JWT middleware se aata hai
+      const user = req.user; 
 
       if (!user) {
         return res.status(401).json({ message: "Unauthorized" });

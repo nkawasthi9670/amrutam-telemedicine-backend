@@ -4,10 +4,10 @@ exports.bookSlot = async (patientId, slotId) => {
   const client = await pool.connect();
 
   try {
-    // transaction start
+    
     await client.query("BEGIN");
 
-    // 🔒 LOCK SLOT (VERY IMPORTANT)
+    
     const slotResult = await client.query(
       `SELECT * FROM availability_slots
        WHERE id = $1
@@ -21,12 +21,12 @@ exports.bookSlot = async (patientId, slotId) => {
 
     const slot = slotResult.rows[0];
 
-    // already booked check
+    
     if (slot.is_booked) {
       throw new Error("Slot already booked");
     }
 
-    // create booking
+    
     const bookingResult = await client.query(
       `INSERT INTO bookings (patient_id, slot_id, status)
        VALUES ($1, $2, 'confirmed')
@@ -34,7 +34,7 @@ exports.bookSlot = async (patientId, slotId) => {
       [patientId, slotId]
     );
 
-    // mark slot booked
+    
     await client.query(
       `UPDATE availability_slots
        SET is_booked = true
@@ -42,7 +42,7 @@ exports.bookSlot = async (patientId, slotId) => {
       [slotId]
     );
 
-    // commit transaction
+    
     await client.query("COMMIT");
 
     return bookingResult.rows[0];

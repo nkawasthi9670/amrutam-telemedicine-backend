@@ -6,7 +6,7 @@ exports.signup = async (req, res) => {
   try {
     const { email, password, role } = req.body;
 
-    // check existing user
+    
     const existing = await authService.findUserByEmail(email);
     if (existing) {
       return res.status(400).json({ message: "Email already exists" });

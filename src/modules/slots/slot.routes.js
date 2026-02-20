@@ -38,7 +38,7 @@ const role = require("../../middleware/roleMiddleware");
  */
 
 
-// Create slot → DOCTOR ONLY
+
 router.post(
   "/",
   auth,
